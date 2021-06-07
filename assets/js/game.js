@@ -231,8 +231,23 @@ endGame();
 var endGame = function() {
 window.alert("The game has now ended. Let's see how you did!");
 
+var highScore = localStorage.getItem("highscore");
+  if (highScore === null) {
+    highScore = 0;}
+
 if (playerInfo.health > 0) {
   window.alert ( "Great job, you've survived the game! You now have a score of " + playerInfo.money + ".");
+  localStorage.getItem("HighScore")
+  if (localStorage.getItem("HighScore") > highScore) {
+    window.alert ("You did not beat the High Score of " + playerInfo.money + ".")
+    
+  }
+  else {
+    localStorage.setItem("HighScore" , playerInfo.money)
+    localStorage.setItem( "High Scorer", playerInfo.name)
+    window.alert ("Congragulations! You have earned the High Score with " + playerInfo.money + ".")
+    
+  }
 }
 else {
   window.alert ("You've lost your robot in battle.");
